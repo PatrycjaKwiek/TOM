@@ -51,10 +51,10 @@ def evaluation_kidney(predicted,actual):
   TPk,FPk,FNk = confusion_matrix_kidney(predicted,actual)
   
   # Założenie wyjątku, kiedy maska nie zawiera ani nerki ani nowotworu
-  a=(1 in y_test[i])
-  b=(1 in y_pred_test[i])
-  c=(2 in y_test[i])
-  d=(2 in y_pred_test[i])
+  a=(1 in actual)
+  b=(1 in predicted)
+  c=(2 in actual)
+  d=(2 in predicted)
   
   if a==True or b==True or c==True or d==True:
     S = ((2*TPk)/(2*TPk+FPk+FNk))
@@ -67,8 +67,8 @@ def evaluation_tumor(predicted,actual):
   TPt,FPt,FNt = confusion_matrix_tumor(predicted,actual)
   
   # Założenie wyjątku, kiedy maska nie zawiera nowotworu
-  c=(2 in y_test[i])
-  d=(2 in y_pred_test[i])
+  c=(2 in actual)
+  d=(2 in predicted)
   
   if c==True or d==True:  
     S = (2*TPt)/(2*TPt+FPt+FNt)
